@@ -82,7 +82,6 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../About SpinalHDL/index.html">About SpinalHDL</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../About SpinalHDL/faq.html">FAQ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../About SpinalHDL/introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../About SpinalHDL/support.html">Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../About SpinalHDL/users.html">Users</a></li>
 </ul>
@@ -94,7 +93,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../Getting Started/motivation.html">Motivation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Getting Started/presentation.html">Presentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Getting Started/Scala Guide/index.html">Scala Guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Getting Started/Scala Guide/introduction.html">Scala guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Getting Started/Scala Guide/basics.html">Basics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Getting Started/Scala Guide/coding_conventions.html">Coding conventions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Getting Started/Scala Guide/interaction.html">Interaction</a></li>
@@ -108,7 +106,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Data types/index.html">Data types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Data types/TypeIntroduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bool.html">Bool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bits.html">Bits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/Int.html">Unit/SInt</a></li>
@@ -139,7 +136,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Design errors/index.html">Design errors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Design errors/introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Design errors/assignment_overlap.html">Assignement overlap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Design errors/clock_crossing_violation.html">Clock crossing violation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Design errors/combinatorial_loop.html">Combinational loop</a></li>
@@ -157,7 +153,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Other language features/index.html">Other language features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Other language features/introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/utils.html">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/assertion.html">Assertions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/analog_inout.html">Analog and inout</a></li>
@@ -165,7 +160,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Libraries/index.html">Libraries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Libraries/introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/utils.html">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/stream.html">Stream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/flow.html">Flow</a></li>
@@ -201,7 +195,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Simulation/index.html">Simulation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Simulation/introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Simulation/bootstraps.html">Boot a simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Simulation/api.html">API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Simulation/continuation.html">Scala continuation (cps)</a></li>
@@ -217,7 +210,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Examples/index.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Examples/introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Examples/Simple ones/index.html">Simple ones</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Examples/Simple ones/apb3.html">APB3 definition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Examples/Simple ones/carry_adder.html">Carry adder</a></li>
@@ -451,8 +443,8 @@ If no enable is specified, it’s automatically inferred from the conditional sc
 <p class="first admonition-title">Note</p>
 <p class="last">If for some reason you need a specific memory port which is not implemented in Spinal, you can always abstract your memory by specifying a BlackBox for it.</p>
 </div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
 <p class="last">Memories ports in SpinalHDL are not inferred but explicitly defined. You should not use coding templates like in VHDL/Verilog to help the synthesis tool to infer memory.</p>
 </div>
 <p>There is a example which infer an simple dual port ram (32 bits * 256):</p>
@@ -495,8 +487,8 @@ If no enable is specified, it’s automatically inferred from the conditional sc
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
 <p class="last">The generated VHDL/Verilog is always in the ‘readFirst’ mode, which is compatible with ‘dontCare’ but not with ‘writeFirst’. To generate a design that contains this kind of feature, you need to enable the automatic memory blackboxing.</p>
 </div>
 </div>
@@ -570,8 +562,8 @@ If no enable is specified, it’s automatically inferred from the conditional sc
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
 <p class="last">As for Read under write policy, to use this feature you need to enable the automatic memory blackboxing, because there is no universal VHDL/Verilog language template to infer mixed width ram.</p>
 </div>
 </div>
