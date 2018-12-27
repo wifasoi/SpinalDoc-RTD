@@ -1,6 +1,4 @@
 
-{% include wavedrom.html %}
-
 Wishbone
 ========
 
@@ -9,7 +7,6 @@ Introduction
 
 The (Wishbone)[] bus is an open standard for interconnecting IP cores toghether.
 The wishbone supports:
-
 
 * pipelined comunication between IPs
 * burst
@@ -22,111 +19,96 @@ Classic
 ^^^^^^^
 
 
-.. raw:: html
+.. wavedrom::
+   :caption: Classic Write
 
-   <div style="float:left">
-   <script type="WaveDrom">
-   {signal: [
-     {name:'CLK',         wave: 'p...' },
-     {name:'WE',          wave: 'x1.x' },
-     {name:'CYC',         wave: '01.0' },
-     {name:'STB',         wave: '01.0' },
-     {name:'ACK',         wave: '0.10' },
-     {name:'ADR',         wave: 'x2.x', data: 'addr'},
-     {name:'DAT_MOSI',    wave: 'x2x.', data: 'data'},
-     {name:'DAT_MISO',    wave: 'x...' },
+   {"signal": [
+     {"name":"CLK",         "wave": "p..." },
+     {"name":"WE",          "wave": "x1.x" },
+     {"name":"CYC",         "wave": "01.0" },
+     {"name":"STB",         "wave": "01.0" },
+     {"name":"ACK",         "wave": "0.10" },
+     {"name":"ADR",         "wave": "x2.x", "data": "addr"},
+     {"name":"DAT_MOSI",    "wave": "x2x.", "data": "data"},
+     {"name":"DAT_MISO",    "wave": "x..." },
    ],
     head:{
-      text:'',
-      tick:0,
+      "tick":0
     },
-    foot:{
-      text:'Classic Write',
+    "foot":{
+      "text":"Classic Write",
       }
    }
-   </script>
-   </div>
 
 
 
-.. raw:: html
+.. wavedrom::
+   :caption: Classic Read
 
-   <script type="WaveDrom">
-   {signal: [
-     {name:'CLK',         wave: 'p...' },
-     {name:'WE',          wave: 'x0.x' },
-     {name:'CYC',         wave: '01.0' },
-     {name:'STB',         wave: '01.0' },
-     {name:'ACK',         wave: '0.10' },
-     {name:'ADR',         wave: 'x2.x', data: 'addr'},
-     {name:'DAT_MOSI',    wave: 'x...' },
-     {name:'DAT_MISO',    wave: 'x.2x', data: 'data'},
+   {"signal": [
+     {"name":"CLK",         "wave": "p..." },
+     {"name":"WE",          "wave": "x0.x" },
+     {"name":"CYC",         "wave": "01.0" },
+     {"name":"STB",         "wave": "01.0" },
+     {"name":"ACK",         "wave": "0.10" },
+     {"name":"ADR",         "wave": "x2.x", "data": "addr"},
+     {"name":"DAT_MOSI",    "wave": "x..." },
+     {"name":"DAT_MISO",    "wave": "x.2x", "data": "data"},
    ],
-    head:{
-      text:'',
-      tick:0,
+    "head":{
+      "tick":0
     },
-    foot:{
-      text:'Classic Read',
+    "foot":{
+      "text":"Classic Read",
       }
    }
-   </script>
 
 
 Pipelined
 ^^^^^^^^^
 
+.. wavedrom::
+   :caption: Pipelined write
 
-.. raw:: html
-
-   <div style="float:left">
-   <script type="WaveDrom">
-   {signal: [
-     {name:'CLK',         wave: 'p...' },
-     {name:'WE',          wave: 'x1.x' },
-     {name:'CYC',         wave: '01.0' },
-     {name:'STB',         wave: '010.' },
-     {name:'ACK',         wave: '0.10' },
-     {name:'ADR',         wave: 'x2.x', data: 'addr' },
-     {name:'DAT_MOSI',    wave: 'x2x.', data: 'data' },
-     {name:'DAT_MISO',    wave: 'x...'},
+   {"signal": [
+     {"name":"CLK",         "wave": "p..." },
+     {"name":"WE",          "wave": "x1.x" },
+     {"name":"CYC",         "wave": "01.0" },
+     {"name":"STB",         "wave": "010." },
+     {"name":"ACK",         "wave": "0.10" },
+     {"name":"ADR",         "wave": "x2.x", "data": "addr" },
+     {"name":"DAT_MOSI",    "wave": "x2x.", "data": "data" },
+     {"name":"DAT_MISO",    "wave": "x..."},
    ],
-    head:{
-      text:'',
-      tick:0,
+    "head":{
+      "tick":0,
     },
-    foot:{
-      text:'Pipelined write',
+    "foot":{
+      "text":"Pipelined write",
       }
    }
-   </script>
-   </div>
 
 
+.. wavedrom::
+   :caption: Pipelined read
 
-.. raw:: html
-
-   <script type="WaveDrom">
-   {signal: [
-     {name:'CLK',         wave: 'p...' },
-     {name:'WE',          wave: 'x0.x' },
-     {name:'CYC',         wave: '01.0' },
-     {name:'STB',         wave: '010.' },
-     {name:'ACK',         wave: '0.10' },
-     {name:'ADR',         wave: 'x2.x', data: 'addr'},
-     {name:'DAT_MOSI',    wave: 'x...'  },
-     {name:'DAT_MISO',    wave: 'x.2x', data: 'data'},
+   {"signal": [
+     {"name":"CLK",         "wave": "p..." },
+     {"name":"WE",          "wave": "x0.x" },
+     {"name":"CYC",         "wave": "01.0" },
+     {"name":"STB",         "wave": "010." },
+     {"name":"ACK",         "wave": "0.10" },
+     {"name":"ADR",         "wave": "x2.x", "data": "addr"},
+     {"name":"DAT_MOSI",    "wave": "x..."  },
+     {"name":"DAT_MISO",    "wave": "x.2x", "data": "data"},
    ],
-    head:{
-      text:'',
-      tick:0,
+    "head":{
+      "tick":0
     },
-    foot:{
-      text:'Pipelined read',
+    "foot":{
+      "text":"Pipelined read",
       }
    }
-   </script>
-
 
 Introduction
 ------------
