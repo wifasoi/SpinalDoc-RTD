@@ -4,114 +4,12 @@ Wishbone
 
 Introduction
 ------------
-
 The (Wishbone)[] bus is an open standard for interconnecting IP cores toghether.
 The wishbone supports:
 
 * pipelined comunication between IPs
 * burst
 * optional tags
-
-Wishbone transactions
----------------------
-
-Classic
-^^^^^^^
-
-
-.. wavedrom::
-   :caption: Classic Write
-
-   {"signal": [
-     {"name":"CLK",         "wave": "p..." },
-     {"name":"WE",          "wave": "x1.x" },
-     {"name":"CYC",         "wave": "01.0" },
-     {"name":"STB",         "wave": "01.0" },
-     {"name":"ACK",         "wave": "0.10" },
-     {"name":"ADR",         "wave": "x2.x", "data": "addr"},
-     {"name":"DAT_MOSI",    "wave": "x2x.", "data": "data"},
-     {"name":"DAT_MISO",    "wave": "x..." },
-   ],
-    head:{
-      "tick":0
-    },
-    "foot":{
-      "text":"Classic Write",
-      }
-   }
-
-
-
-.. wavedrom::
-   :caption: Classic Read
-
-   {"signal": [
-     {"name":"CLK",         "wave": "p..." },
-     {"name":"WE",          "wave": "x0.x" },
-     {"name":"CYC",         "wave": "01.0" },
-     {"name":"STB",         "wave": "01.0" },
-     {"name":"ACK",         "wave": "0.10" },
-     {"name":"ADR",         "wave": "x2.x", "data": "addr"},
-     {"name":"DAT_MOSI",    "wave": "x..." },
-     {"name":"DAT_MISO",    "wave": "x.2x", "data": "data"},
-   ],
-    "head":{
-      "tick":0
-    },
-    "foot":{
-      "text":"Classic Read",
-      }
-   }
-
-
-Pipelined
-^^^^^^^^^
-
-.. wavedrom::
-   :caption: Pipelined write
-
-   {"signal": [
-     {"name":"CLK",         "wave": "p..." },
-     {"name":"WE",          "wave": "x1.x" },
-     {"name":"CYC",         "wave": "01.0" },
-     {"name":"STB",         "wave": "010." },
-     {"name":"ACK",         "wave": "0.10" },
-     {"name":"ADR",         "wave": "x2.x", "data": "addr" },
-     {"name":"DAT_MOSI",    "wave": "x2x.", "data": "data" },
-     {"name":"DAT_MISO",    "wave": "x..."},
-   ],
-    "head":{
-      "tick":0,
-    },
-    "foot":{
-      "text":"Pipelined write",
-      }
-   }
-
-
-.. wavedrom::
-   :caption: Pipelined read
-
-   {"signal": [
-     {"name":"CLK",         "wave": "p..." },
-     {"name":"WE",          "wave": "x0.x" },
-     {"name":"CYC",         "wave": "01.0" },
-     {"name":"STB",         "wave": "010." },
-     {"name":"ACK",         "wave": "0.10" },
-     {"name":"ADR",         "wave": "x2.x", "data": "addr"},
-     {"name":"DAT_MOSI",    "wave": "x..."  },
-     {"name":"DAT_MISO",    "wave": "x.2x", "data": "data"},
-   ],
-    "head":{
-      "tick":0
-    },
-    "foot":{
-      "text":"Pipelined read",
-      }
-   }
-
-Introduction
-------------
 
 Configuration and instanciation
 -------------------------------
@@ -239,3 +137,67 @@ You can check the bus configuration with:
    // You can check the configuration like this
    wb.config.isPipelined // will return true
    wb.config.dataWidth   //will return 8
+
+Wishbone components
+-------------------
+The wishbone library has some other componet, like:
+
+- WishboneDecoder
+- WishboneArbiter
+- WishboneIntercon
+- WishboneAdapter
+
+all the componet and utilities are in ``spinal.lib.bus.wishbone``
+
+WishboneDecoder
+^^^^^^^^^^^^^^^
+This device is usefull when you need to connect multiple wishbone slaves to a master.
+
+You can istantiate it in this way:
+
+.. todo::
+   check this code
+
+.. code:: scala
+
+   val salves = Map(
+    slave1 -> (0x00000000L,   4 kB),
+    slave2 -> (0x40000000L,  64 MB),
+    slave3 -> (0xF0000000L,   1 MB)
+   )
+
+   val decoder = WishboneDecoder(master, slaves)
+   # master and slaves need to have the same config,
+   # the only thing allowed to be different is he address size
+   # (but master.addressWidth >= slaveX.addressWidth)
+
+WishboneArbiter
+^^^^^^^^^^^^^^^
+This device is usefull when you need to connect multiple master to a slave.
+If two or more masters try to access the slave, The WishboneArbiter will wait the end of the translation,
+and hand over the bus next master (only prioritized round-robin is supported).
+
+You can instantiate it in this way:
+
+.. code:: scala
+
+   # The master order in the array matters!
+   # master1 have priority over master2 and so on
+   val arbiter = WishboneArbiter([master1,master2,master3], slave)
+
+   # masters and slave need to have the same config,
+   # the only thing allowed to be different is he address size
+   # (but master.addressWidth >= slaveX.addressWidth)
+
+WishboneIntercon
+^^^^^^^^^^^^^^^^
+This device is usefull if you need to connect multiple masters to multiple slaves.
+WishboneArbiter is builded with ``WishboneDecoder`` and ``WishboneArbiter`` connected togheder.
+
+You can istantiate it in this way:
+
+.. todo::
+   add code
+
+.. todo::
+   spellcheck and proofread
