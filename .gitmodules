@@ -1,0 +1,4 @@
+[submodule "source/assets"]
+	path = source/assets
+	url = git@github.com:SpinalHDL/SpinalDoc.git
+	branch = master
