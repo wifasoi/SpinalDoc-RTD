@@ -15,7 +15,7 @@ This toplevel implementation could be consulted there :
 
 There is the Briey toplevel hardware diagram :
 
-.. image:: /asset/picture/pinsec_hardware.svg
+.. image:: /assets/asset/picture/pinsec_hardware.svg
    :align: center
 
 

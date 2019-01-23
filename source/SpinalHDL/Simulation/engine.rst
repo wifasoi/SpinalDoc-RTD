@@ -8,7 +8,7 @@ This page explain the internals of the simulation engine.
 
 Basicaly, the simulation engine emulate a event-driven simulator (VHDL/Verilog like) by applying the following simulation loop on the top of the Verilator C++ simulation model :
 
-.. image:: /asset/picture/simEngine.png
+.. image:: /assets/asset/picture/simEngine.png
    :align: center
 
 At a low level, the simulation engine manage the following primitives :

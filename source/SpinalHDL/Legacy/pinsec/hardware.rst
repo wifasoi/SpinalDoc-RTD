@@ -9,7 +9,7 @@ Introduction
 
 There is the Pinsec toplevel hardware diagram :
 
-.. image:: /asset/picture/pinsec_hardware.svg
+.. image:: /assets/asset/picture/pinsec_hardware.svg
    :align: center
 
 RISCV

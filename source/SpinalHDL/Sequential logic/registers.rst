@@ -60,7 +60,7 @@ There is some usage examples :
 
 The code above will infer the following logic :
 
-.. image:: /asset/picture/register.svg
+.. image:: /assets/asset/picture/register.svg
    :align: center
 
 .. note::

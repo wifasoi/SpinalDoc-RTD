@@ -73,7 +73,7 @@ First, we just need to define the ``Apb3Config`` that will be used for the contr
 
 Then we can define a ``Apb3UartCtrl`` component which instantiates a ``UartCtrl`` and creates the memory mapping logic between it and the APB3 bus:
 
-.. image:: /asset/picture/memory_mapped_uart.svg
+.. image:: /assets/asset/picture/memory_mapped_uart.svg
    :align: center
 
 .. code-block:: scala

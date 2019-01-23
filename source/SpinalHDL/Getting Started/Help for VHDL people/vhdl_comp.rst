@@ -16,7 +16,7 @@ Processes have no senses when you define RTL, and worst than that, they are very
 
 To produce the following RTL:
 
-.. image:: /asset/picture/process_rtl.svg
+.. image:: /assets/asset/picture/process_rtl.svg
 
 You will have to write the following VHDL:
 

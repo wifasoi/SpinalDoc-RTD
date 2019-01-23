@@ -160,7 +160,7 @@ Functions
 
 The following code will create this logic :
 
-.. image:: /asset/picture/stream_throw_m2spipe.svg
+.. image:: /assets/asset/picture/stream_throw_m2spipe.svg
    :align: center
 
 .. code-block:: scala

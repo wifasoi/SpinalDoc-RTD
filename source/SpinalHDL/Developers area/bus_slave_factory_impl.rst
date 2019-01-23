@@ -16,7 +16,7 @@ Specification
 
 The class diagram is the following :
 
-.. image:: /asset/picture/bus_slave_factory_classes.svg
+.. image:: /assets/asset/picture/bus_slave_factory_classes.svg
    :align: center
 
 

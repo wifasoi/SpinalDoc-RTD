@@ -15,7 +15,7 @@ The language provides 5 base types and 2 composite types that can be used.
 * Base types : ``Bool``, ``Bits``, ``UInt`` for unsigned integers, ``SInt`` for signed integers, ``Enum``.
 * Composite types : Bundle, Vec.
 
-.. image:: /asset/picture/types.svg
+.. image:: /assets/asset/picture/types.svg
    :align: center
    :width: 300
 

@@ -13,7 +13,7 @@ In SpinalHDL you can define your state machine like in VHDL/Verilog, by using en
 
 The following state machine is implemented in following examples :
 
-.. image:: /asset/picture/fsm_simple.svg
+.. image:: /assets/asset/picture/fsm_simple.svg
    :align: center
    :width: 300
 
@@ -159,7 +159,7 @@ In each of them you have access the following utilities :
 
 For example, the following state could be defined in SpinalHDL by using the following syntax :
 
-.. image:: /asset/picture/fsm_stateb.svg
+.. image:: /assets/asset/picture/fsm_stateb.svg
    :align: center
    :width: 300
 
