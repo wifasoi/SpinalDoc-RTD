@@ -4,14 +4,14 @@ Wishbone
 
 Introduction
 ------------
-The (Wishbone)[] bus is an open standard for interconnecting IP cores toghether.
+The (Wishbone)[] bus is an open standard for interconnecting IP cores together.
 The wishbone supports:
 
-* pipelined comunication between IPs
+* pipelined communication between IPs
 * burst
 * optional tags
 
-Configuration and instanciation
+Configuration and instantiation
 -------------------------------
 
 The ``Wishbone`` Bundle has a construction argument ``WishboneConfig``. For more information the Wishbone spec could be find `there <http://cdn.opencores.org/downloads/wbspec_b4.pdf>`_.
@@ -140,20 +140,20 @@ You can check the bus configuration with:
 
 Wishbone components
 -------------------
-The wishbone library has some other componet, like:
+The wishbone library has some other component, like:
 
 - WishboneDecoder
 - WishboneArbiter
 - WishboneIntercon
 - WishboneAdapter
 
-all the componet and utilities are in ``spinal.lib.bus.wishbone``
+all the component and utilities are in ``spinal.lib.bus.wishbone``
 
 WishboneDecoder
 ^^^^^^^^^^^^^^^
-This device is usefull when you need to connect multiple wishbone slaves to a master.
+This device is useful when you need to connect multiple wishbone slaves to a master.
 
-You can istantiate it in this way:
+You can instantiate it in this way:
 
 .. todo::
    check this code
@@ -173,7 +173,7 @@ You can istantiate it in this way:
 
 WishboneArbiter
 ^^^^^^^^^^^^^^^
-This device is usefull when you need to connect multiple master to a slave.
+This device is useful when you need to connect multiple master to a slave.
 If two or more masters try to access the slave, The WishboneArbiter will wait the end of the translation,
 and hand over the bus next master (only prioritized round-robin is supported).
 
@@ -191,10 +191,10 @@ You can instantiate it in this way:
 
 WishboneIntercon
 ^^^^^^^^^^^^^^^^
-This device is usefull if you need to connect multiple masters to multiple slaves.
-WishboneArbiter is builded with ``WishboneDecoder`` and ``WishboneArbiter`` connected togheder.
+This device is useful if you need to connect multiple masters to multiple slaves.
+WishboneArbiter is builded with ``WishboneDecoder`` and ``WishboneArbiter`` connected together.
 
-You can istantiate it in this way:
+You can instantiate it in this way:
 
 .. todo::
    add code
