@@ -142,12 +142,14 @@ Wishbone components
 -------------------
 The wishbone library has some other component, like:
 
-- WishboneDecoder
-- WishboneArbiter
-- WishboneIntercon
-- WishboneAdapter
+- :ref:`WishboneDecoder`
+- :ref:`WishboneArbiter`
+- :ref:`WishboneIntercon`
+- :ref:`WishboneAdapter`
 
 all the component and utilities are in ``spinal.lib.bus.wishbone``
+
+.. _WishboneDecoder:
 
 WishboneDecoder
 ^^^^^^^^^^^^^^^
@@ -171,6 +173,8 @@ You can instantiate it in this way:
    # the only thing allowed to be different is he address size
    # (but master.addressWidth >= slaveX.addressWidth)
 
+.. _WishboneArbiter:
+
 WishboneArbiter
 ^^^^^^^^^^^^^^^
 This device is useful when you need to connect multiple master to a slave.
@@ -187,14 +191,32 @@ You can instantiate it in this way:
 
    # masters and slave need to have the same config,
    # the only thing allowed to be different is he address size
-   # (but master.addressWidth >= slaveX.addressWidth)
+   # (but masterX.addressWidth >= slave.addressWidth)
+
+.. _WishboneIntercon:
 
 WishboneIntercon
 ^^^^^^^^^^^^^^^^
 This device is useful if you need to connect multiple masters to multiple slaves.
-WishboneArbiter is builded with ``WishboneDecoder`` and ``WishboneArbiter`` connected together.
+WishboneArbiter is built with ``WishboneDecoder`` and ``WishboneArbiter`` connected together.
 
 You can instantiate it in this way:
+
+.. todo::
+   add code
+
+.. todo::
+   spellcheck and proofread
+
+.. _WishboneAdapter:
+
+WishboneAdapter
+^^^^^^^^^^^^^^^
+This device can be used to:
+
+- adapt two bussed with different address/data/tag width
+- interface a pipelined wishbone master to a classic slave
+- interface a classic wishbone master to a pipelined slave
 
 .. todo::
    add code
