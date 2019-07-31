@@ -17,13 +17,22 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/default.js"></script>
+        <script type="text/javascript" src="../../_static/wavedrom.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
@@ -31,21 +40,16 @@
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Analog and inout" href="analog_inout.html" />
     <link rel="prev" title="Utils" href="utils.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -129,13 +133,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../Structuring/area.html">Area</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Structuring/function.html">Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Structuring/clock_domain.html">Clock domains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Structuring/blackbox.html">Instanciate VHDL and Verilog IP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Structuring/blackbox.html">Instantiate VHDL and Verilog IP</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Semantic/index.html">Semantic</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Semantic/assignements.html">Assignments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Semantic/when_switch.html">When/Switch/Mux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Semantic/sementic.html">Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Semantic/rules.html">Rules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Sequential logic/index.html">Sequential logic</a><ul>
@@ -333,35 +337,35 @@
             
   <div class="section" id="assertions">
 <h1>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h1>
-<p>In addition of scala run-time assertion, you can add hardware assertion via the following syntax:</p>
+<p>In addition to scala run-time assertions, you can add hardware assertions using the following syntax:</p>
 <p><code class="docutils literal notranslate"><span class="pre">assert(assertion</span> <span class="pre">:</span> <span class="pre">Bool,message</span> <span class="pre">:</span> <span class="pre">String</span> <span class="pre">=</span> <span class="pre">null,severity:</span> <span class="pre">AssertNodeSeverity</span> <span class="pre">=</span> <span class="pre">Error)</span></code></p>
-<p>Severity levels are :</p>
-<table border="1" class="colwidths-given docutils">
+<p>Severity levels are:</p>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Name</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>NOTE</td>
-<td>Used to report a informative message</td>
+<tbody>
+<tr class="row-even"><td><p>NOTE</p></td>
+<td><p>Used to report a informative message</p></td>
 </tr>
-<tr class="row-odd"><td>WARNING</td>
-<td>Used to report a unusual case</td>
+<tr class="row-odd"><td><p>WARNING</p></td>
+<td><p>Used to report a unusual case</p></td>
 </tr>
-<tr class="row-even"><td>ERROR</td>
-<td>Used to report an situation that should not happen</td>
+<tr class="row-even"><td><p>ERROR</p></td>
+<td><p>Used to report an situation that should not happen</p></td>
 </tr>
-<tr class="row-odd"><td>FAILURE</td>
-<td>Used to report a fatal situation and close the simulation</td>
+<tr class="row-odd"><td><p>FAILURE</p></td>
+<td><p>Used to report a fatal situation and close the simulation</p></td>
 </tr>
 </tbody>
 </table>
-<p>One practical example could be to check that the <code class="docutils literal notranslate"><span class="pre">valid</span></code> of a handshake protocol never drop when <code class="docutils literal notranslate"><span class="pre">ready</span></code> is low :</p>
+<p>One practical example could be to check that the <code class="docutils literal notranslate"><span class="pre">valid</span></code> signal of a handshake protocol never drops when <code class="docutils literal notranslate"><span class="pre">ready</span></code> is low:</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TopLevel</span> <span class="k">extends</span> <span class="nc">Component</span> <span class="o">{</span>
   <span class="k">val</span> <span class="n">valid</span> <span class="k">=</span> <span class="nc">RegInit</span><span class="o">(</span><span class="nc">False</span><span class="o">)</span>
   <span class="k">val</span> <span class="n">ready</span> <span class="k">=</span> <span class="n">in</span> <span class="nc">Bool</span>
@@ -398,7 +402,7 @@
         <a href="analog_inout.html" class="btn btn-neutral float-right" title="Analog and inout" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="utils.html" class="btn btn-neutral" title="Utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="utils.html" class="btn btn-neutral float-left" title="Utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -424,27 +428,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/default.js"></script>
-        <script type="text/javascript" src="../../_static/wavedrom.min.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
