@@ -21,12 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/default.js"></script>
-        <script type="text/javascript" src="../../_static/wavedrom.min.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/default.js"></script>
+        <script src="../../_static/wavedrom.min.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -120,7 +120,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Data types/index.html">Data types</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bool.html">Bool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bits.html">Bits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Data types/Int.html">Unit/SInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Data types/Int.html">UInt/SInt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/enum.html">SpinalEnum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bundle.html">Bundle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/Vec.html">Vec</a></li>
@@ -167,6 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Other language features/index.html">Other language features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/utils.html">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/assertion.html">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Other language features/formal.html">Formal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/analog_inout.html">Analog and inout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/vhdl_generation.html">VHDL and Verilog generation</a></li>
 </ul>
@@ -179,6 +180,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/fsm.html">State machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/vexriscv.html">VexRiscv (RV32IM CPU)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/bus_slave_factory.html">Bus Slave Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Libraries/generator.html">Generator framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/Bus/index.html">Bus</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Libraries/Bus/amba3/ahblite3.html">AHB-Lite3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Libraries/Bus/amba3/apb3.html">Apb3</a></li>
@@ -419,18 +421,18 @@
 </div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>The SpinalHDL compile will perform many checks on your design to be sure that the generated VHDL/Verilog will be safe for simulation and synthesis. Basicaly, it should not be possible to generate a broken VHDL/Verilog. There is a none exaustive list of SpinalHDL checks :</p>
+<p>The SpinalHDL compile will perform many checks on your design to be sure that the generated VHDL/Verilog will be safe for simulation and synthesis. Basicaly, it should not be possible to generate a broken VHDL/Verilog. There is a not exhaustive list of SpinalHDL checks :</p>
 <ul class="simple">
 <li><p>Assignement overlaping</p></li>
 <li><p>Clock crossing</p></li>
 <li><p>Hiearchy violation</p></li>
 <li><p>Combinatorial loops</p></li>
 <li><p>Latches</p></li>
-<li><p>Undrived signals</p></li>
-<li><p>Width missmatch</p></li>
+<li><p>Undriven signals</p></li>
+<li><p>Width mismatch</p></li>
 <li><p>Unreachable switch statements</p></li>
 </ul>
-<p>On each SpinalHDL error report, you will find a stack trace which is realy usefull to accuratly findout where is the design error. It could look overkill in a first look, but as soon you start to go futher the traditional way of doing hardware description, it is realy a helpfull tool.</p>
+<p>On each SpinalHDL error report, you will find a stack trace which is realy usefull to accuratly find out where the design error is. It could look overkill in a first look, but as soon you start to go futher the traditional way of doing hardware description, it is realy a helpfull tool.</p>
 </div>
 </div>
 

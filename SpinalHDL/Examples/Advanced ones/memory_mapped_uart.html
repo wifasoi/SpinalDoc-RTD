@@ -21,12 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/default.js"></script>
-        <script type="text/javascript" src="../../../_static/wavedrom.min.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/default.js"></script>
+        <script src="../../../_static/wavedrom.min.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -120,7 +120,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../Data types/index.html">Data types</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/bool.html">Bool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/bits.html">Bits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Data types/Int.html">Unit/SInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Data types/Int.html">UInt/SInt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/enum.html">SpinalEnum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/bundle.html">Bundle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/Vec.html">Vec</a></li>
@@ -167,6 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../Other language features/index.html">Other language features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Other language features/utils.html">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Other language features/assertion.html">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other language features/formal.html">Formal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Other language features/analog_inout.html">Analog and inout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Other language features/vhdl_generation.html">VHDL and Verilog generation</a></li>
 </ul>
@@ -179,6 +180,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Libraries/fsm.html">State machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Libraries/vexriscv.html">VexRiscv (RV32IM CPU)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Libraries/bus_slave_factory.html">Bus Slave Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Libraries/generator.html">Generator framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Libraries/Bus/index.html">Bus</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Libraries/Bus/amba3/ahblite3.html">AHB-Lite3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Libraries/Bus/amba3/apb3.html">Apb3</a></li>
@@ -414,8 +416,7 @@
 </pre></div>
 </div>
 <p>Then we can define a <code class="docutils literal notranslate"><span class="pre">Apb3UartCtrl</span></code> component which instantiates a <code class="docutils literal notranslate"><span class="pre">UartCtrl</span></code> and creates the memory mapping logic between it and the APB3 bus:</p>
-<div align="center" class="align-center"><img alt="../../../_images/memory_mapped_uart.svg" src="../../../_images/memory_mapped_uart.svg" /></div>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Apb3UartCtrl</span><span class="o">(</span><span class="n">uartCtrlConfig</span> <span class="k">:</span> <span class="kt">UartCtrlGenerics</span><span class="o">,</span> <span class="n">rxFifoDepth</span> <span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Component</span><span class="o">{</span>
+<img alt="../../../_images/memory_mapped_uart.svg" class="align-center" src="../../../_images/memory_mapped_uart.svg" /><div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Apb3UartCtrl</span><span class="o">(</span><span class="n">uartCtrlConfig</span> <span class="k">:</span> <span class="kt">UartCtrlGenerics</span><span class="o">,</span> <span class="n">rxFifoDepth</span> <span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Component</span><span class="o">{</span>
   <span class="k">val</span> <span class="n">io</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">{</span>
     <span class="k">val</span> <span class="n">bus</span> <span class="k">=</span>  <span class="n">slave</span><span class="o">(</span><span class="nc">Apb3</span><span class="o">(</span><span class="nc">Apb3UartCtrl</span><span class="o">.</span><span class="n">getApb3Config</span><span class="o">))</span>
     <span class="k">val</span> <span class="n">uart</span> <span class="k">=</span> <span class="n">master</span><span class="o">(</span><span class="nc">Uart</span><span class="o">())</span>

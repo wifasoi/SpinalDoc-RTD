@@ -21,12 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../../_static/default.js"></script>
-        <script type="text/javascript" src="../../../_static/wavedrom.min.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/default.js"></script>
+        <script src="../../../_static/wavedrom.min.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -120,7 +120,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../Data types/index.html">Data types</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/bool.html">Bool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/bits.html">Bits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Data types/Int.html">Unit/SInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Data types/Int.html">UInt/SInt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/enum.html">SpinalEnum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/bundle.html">Bundle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Data types/Vec.html">Vec</a></li>
@@ -167,6 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../Other language features/index.html">Other language features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Other language features/utils.html">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Other language features/assertion.html">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other language features/formal.html">Formal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Other language features/analog_inout.html">Analog and inout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Other language features/vhdl_generation.html">VHDL and Verilog generation</a></li>
 </ul>
@@ -179,6 +180,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Libraries/fsm.html">State machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Libraries/vexriscv.html">VexRiscv (RV32IM CPU)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Libraries/bus_slave_factory.html">Bus Slave Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Libraries/generator.html">Generator framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Libraries/Bus/index.html">Bus</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Libraries/Bus/amba3/ahblite3.html">AHB-Lite3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Libraries/Bus/amba3/apb3.html">Apb3</a></li>
@@ -346,8 +348,7 @@
 <p>This toplevel implementation could be consulted there :
 <a class="reference external" href="https://github.com/SpinalHDL/SpinalHDL/blob/master/lib/src/main/scala/spinal/lib/soc/pinsec/Pinsec.scala">https://github.com/SpinalHDL/SpinalHDL/blob/master/lib/src/main/scala/spinal/lib/soc/pinsec/Pinsec.scala</a></p>
 <p>There is the Pinsec toplevel hardware diagram :</p>
-<div align="center" class="align-center"><img alt="../../../_images/pinsec_hardware.svg" src="../../../_images/pinsec_hardware.svg" /></div>
-</div>
+<img alt="../../../_images/pinsec_hardware.svg" class="align-center" src="../../../_images/pinsec_hardware.svg" /></div>
 <div class="section" id="defining-all-io">
 <h2>Defining all IO<a class="headerlink" href="#defining-all-io" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">io</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Bundle</span><span class="o">{</span>

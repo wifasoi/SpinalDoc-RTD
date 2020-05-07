@@ -21,12 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/default.js"></script>
-        <script type="text/javascript" src="../../_static/wavedrom.min.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/default.js"></script>
+        <script src="../../_static/wavedrom.min.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -120,7 +120,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Data types/index.html">Data types</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bool.html">Bool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bits.html">Bits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Data types/Int.html">Unit/SInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Data types/Int.html">UInt/SInt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/enum.html">SpinalEnum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bundle.html">Bundle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/Vec.html">Vec</a></li>
@@ -167,6 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Other language features/index.html">Other language features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/utils.html">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/assertion.html">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Other language features/formal.html">Formal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/analog_inout.html">Analog and inout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/vhdl_generation.html">VHDL and Verilog generation</a></li>
 </ul>
@@ -179,6 +180,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/fsm.html">State machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/vexriscv.html">VexRiscv (RV32IM CPU)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/bus_slave_factory.html">Bus Slave Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Libraries/generator.html">Generator framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/Bus/index.html">Bus</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Libraries/Bus/amba3/ahblite3.html">AHB-Lite3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Libraries/Bus/amba3/apb3.html">Apb3</a></li>
@@ -359,7 +361,7 @@ unsetenv VERILATOR_ROOT  <span class="c1"># For csh; ignore error if on bash</sp
 <span class="nb">unset</span> VERILATOR_ROOT  <span class="c1"># For bash</span>
 <span class="nb">cd</span> verilator
 git pull        <span class="c1"># Make sure we&#39;re up-to-date</span>
-git checkout verilator_3_916
+git checkout v3.916
 autoconf        <span class="c1"># Create ./configure script</span>
 ./configure
 make -j<span class="k">$(</span>nproc<span class="k">)</span>
@@ -374,10 +376,27 @@ sudo make install
 <ul class="simple">
 <li><p>Install MSYS2</p></li>
 <li><p>Via MSYS2 get gcc/g++/verilator (for verilator you can compile it from the sources)</p></li>
-<li><p>Add bin and usrbin of MSYS2 into your windows PATH (ie : C:msys64usrbin;C:msys64mingw64bin)</p></li>
+<li><p>Add bin and usr\bin of MSYS2 into your windows PATH (ie : C:\msys64\usr\bin;C:\msys64\mingw64\bin)</p></li>
 </ul>
 <p>Then you should be able to run SpinalSim + verilator from your Scala project without having to use MSYS2 anymore.</p>
 <p>From a fresh install of MSYS2 MinGW 64-bits, you will have to run the following commands inside the MSYS2 MinGW 64-bits shell (enter commands one by one):</p>
+<div class="section" id="from-the-mingw-packet-manager">
+<h3>from the minGW packet manager<a class="headerlink" href="#from-the-mingw-packet-manager" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Syuu
+<span class="c1">#Close the MSYS2 shell once you&#39;re asked to</span>
+pacman -Syuu
+pacman -S --needed base-devel mingw-w64-x86_64-toolchain <span class="se">\</span>
+                   git flex<span class="se">\</span>
+                   mingw-w64-x86_64-cmake
+
+pacman -S mingw-w64-x86_64-verilator
+
+<span class="c1">#Add C:\msys64\usr\bin;C:\msys64\mingw64\bin to you windows PATH</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="from-source">
+<h3>from source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pacman -Syuu
 <span class="c1">#Close the MSYS2 shell once you&#39;re asked to</span>
 pacman -Syuu
@@ -409,6 +428,7 @@ make install
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Adding the MSYS2 bin folders into your windows PATH could potentialy have some side effects. It’s why it is safer to add them as last elements of the PATH to reduce their priority.</p>
+</div>
 </div>
 </div>
 </div>

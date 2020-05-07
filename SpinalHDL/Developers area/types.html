@@ -21,12 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/default.js"></script>
-        <script type="text/javascript" src="../../_static/wavedrom.min.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/default.js"></script>
+        <script src="../../_static/wavedrom.min.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -119,7 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Data types/index.html">Data types</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bool.html">Bool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bits.html">Bits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Data types/Int.html">Unit/SInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Data types/Int.html">UInt/SInt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/enum.html">SpinalEnum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bundle.html">Bundle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/Vec.html">Vec</a></li>
@@ -166,6 +166,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Other language features/index.html">Other language features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/utils.html">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/assertion.html">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Other language features/formal.html">Formal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/analog_inout.html">Analog and inout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/vhdl_generation.html">VHDL and Verilog generation</a></li>
 </ul>
@@ -178,6 +179,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/fsm.html">State machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/vexriscv.html">VexRiscv (RV32IM CPU)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/bus_slave_factory.html">Bus Slave Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Libraries/generator.html">Generator framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/Bus/index.html">Bus</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Libraries/Bus/amba3/ahblite3.html">AHB-Lite3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Libraries/Bus/amba3/apb3.html">Apb3</a></li>
@@ -343,8 +345,7 @@
 <li><p>Base types : <code class="docutils literal notranslate"><span class="pre">Bool</span></code>, <code class="docutils literal notranslate"><span class="pre">Bits</span></code>, <code class="docutils literal notranslate"><span class="pre">UInt</span></code> for unsigned integers, <code class="docutils literal notranslate"><span class="pre">SInt</span></code> for signed integers, <code class="docutils literal notranslate"><span class="pre">Enum</span></code>.</p></li>
 <li><p>Composite types : Bundle, Vec.</p></li>
 </ul>
-<a class="reference internal image-reference" href="../../_images/types.svg"><div align="center" class="align-center"><img alt="../../_images/types.svg" src="../../_images/types.svg" width="300" /></div>
-</a>
+<a class="reference internal image-reference" href="../../_images/types.svg"><img alt="../../_images/types.svg" class="align-center" src="../../_images/types.svg" width="300" /></a>
 <p>Those types and their usage (with examples) are explained hereafter.</p>
 <p>About the fixed point support it’s documented <a class="reference internal" href="../Data types/Fix.html#fixed"><span class="std std-ref">there</span></a></p>
 </div>

@@ -21,12 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="../../_static/default.js"></script>
-        <script type="text/javascript" src="../../_static/wavedrom.min.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/default.js"></script>
+        <script src="../../_static/wavedrom.min.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -120,7 +120,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Data types/index.html">Data types</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bool.html">Bool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bits.html">Bits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Data types/Int.html">Unit/SInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Data types/Int.html">UInt/SInt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/enum.html">SpinalEnum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/bundle.html">Bundle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Data types/Vec.html">Vec</a></li>
@@ -167,6 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Other language features/index.html">Other language features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/utils.html">Utils</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/assertion.html">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Other language features/formal.html">Formal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/analog_inout.html">Analog and inout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Other language features/vhdl_generation.html">VHDL and Verilog generation</a></li>
 </ul>
@@ -179,6 +180,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/fsm.html">State machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/vexriscv.html">VexRiscv (RV32IM CPU)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/bus_slave_factory.html">Bus Slave Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Libraries/generator.html">Generator framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Libraries/Bus/index.html">Bus</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Libraries/Bus/amba3/ahblite3.html">AHB-Lite3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Libraries/Bus/amba3/apb3.html">Apb3</a></li>
@@ -344,8 +346,7 @@
 <div class="section" id="specification">
 <h2>Specification<a class="headerlink" href="#specification" title="Permalink to this headline">¶</a></h2>
 <p>The class diagram is the following :</p>
-<div align="center" class="align-center"><img alt="../../_images/bus_slave_factory_classes.svg" src="../../_images/bus_slave_factory_classes.svg" /></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">BusSlaveFactory</span></code> abstract class define minimum requirements that each implementation of it should provide :</p>
+<img alt="../../_images/bus_slave_factory_classes.svg" class="align-center" src="../../_images/bus_slave_factory_classes.svg" /><p>The <code class="docutils literal notranslate"><span class="pre">BusSlaveFactory</span></code> abstract class define minimum requirements that each implementation of it should provide :</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 17%" />
@@ -641,7 +642,7 @@
 
 
   <span class="c1">// elementsPerAddress is more structured than elements, it group all BusSlaveFactoryElement per requested addresses</span>
-  <span class="k">val</span> <span class="n">elementsPerAddress</span> <span class="k">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">mutable</span><span class="o">.</span><span class="nc">HashMap</span><span class="o">[</span><span class="kt">BigInt</span>,<span class="kt">ArrayBuffer</span><span class="o">[</span><span class="kt">BusSlaveFactoryElement</span><span class="o">]]()</span>
+  <span class="k">val</span> <span class="n">elementsPerAddress</span> <span class="k">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">mutable</span><span class="o">.</span><span class="nc">HashMap</span><span class="o">[</span><span class="kt">BigInt</span><span class="p">,</span><span class="kt">ArrayBuffer</span><span class="o">[</span><span class="kt">BusSlaveFactoryElement</span><span class="o">]]()</span>
 
   <span class="k">private</span> <span class="k">def</span> <span class="n">addAddressableElement</span><span class="o">(</span><span class="n">e</span> <span class="k">:</span> <span class="kt">BusSlaveFactoryElement</span><span class="o">,</span><span class="n">address</span> <span class="k">:</span> <span class="kt">BigInt</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
     <span class="n">elements</span> <span class="o">+=</span> <span class="n">e</span>
