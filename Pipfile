@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 sphinx = "*"
 sphinx-rtd-theme = "*"
-sphinxcontrib-wavedrom = "*"
+sphinxcontrib-wavedrom = {editable = true, git = "https://github.com/bavovanachte/sphinx-wavedrom.git", ref = "github_actions"}
 
 [dev-packages]
 "doc8" = "*"

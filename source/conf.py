@@ -198,8 +198,10 @@ html_context = {
      }
 
 #This is a temporary fix for wavedrom
-offline_skin_js_path = "_static/default.js"
-offline_wavedrom_js_path = "_static/wavedrom.min.js"
+# offline_skin_js_path = "_static/default.js"
+# offline_wavedrom_js_path = "_static/wavedrom.min.js"
+online_skin_js_path = "https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.3/skins/default.js"
+online_wavedrom_js_path = "https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.3/wavedrom.min.js"
 
 #Option for linkcheck
 linkcheck_anchors=False
